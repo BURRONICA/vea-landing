@@ -1,7 +1,6 @@
 'use client'
 // Módulo de administración
 import { useState } from 'react';
-import { useState } from 'react';
 
 export default function SoftwareApp() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
