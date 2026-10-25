@@ -7,10 +7,8 @@ export default function SoftwareApp() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
-  // Pestaña activa del sistema
   const [activeTab, setActiveTab] = useState<'dashboard' | 'inventario' | 'clientes' | 'ventas'>('dashboard');
 
-  // Datos de ejemplo para pruebas
   const [inventario, setInventario] = useState([
     { id: 1, codigo: 'ARM-001', producto: 'Armazón Ray-Ban Black', stock: 12, precio: '$2,400' },
     { id: 2, codigo: 'MIC-002', producto: 'Mica Antirreflejante Poly', stock: 25, precio: '$850' },
@@ -34,7 +32,6 @@ export default function SoftwareApp() {
     }
   };
 
-  // Pantalla de Login Privado
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4 font-sans">
@@ -74,10 +71,8 @@ export default function SoftwareApp() {
     );
   }
 
-  // Panel de Control del Software
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans flex flex-col">
-      {/* Encabezado del Sistema */}
       <header className="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <span className="text-2xl font-black bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
@@ -96,7 +91,6 @@ export default function SoftwareApp() {
       </header>
 
       <div className="flex flex-1">
-        {/* Menú Lateral */}
         <aside className="w-64 bg-slate-900/50 border-r border-slate-800/80 p-4 space-y-2">
           <button
             onClick={() => setActiveTab('dashboard')}
@@ -132,7 +126,6 @@ export default function SoftwareApp() {
           </button>
         </aside>
 
-        {/* Área Principal de Trabajo */}
         <main className="flex-1 p-8 space-y-6">
           {activeTab === 'dashboard' && (
             <div className="space-y-6">
