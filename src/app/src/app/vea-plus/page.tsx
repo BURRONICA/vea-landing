@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 // Módulo de administración
 import { useState } from 'react';
 
