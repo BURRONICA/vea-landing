@@ -1,3 +1,4 @@
+import './globals.css';
 export const metadata = {
   title: 'VEA+ Landing Page',
   description: 'La solución inteligente B2B para tu óptica',
