@@ -69,7 +69,6 @@ export default function SoftwareApp() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row">
-      {/* Sidebar */}
       <aside className="w-full md:w-64 bg-slate-900 border-r border-slate-800 p-6 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-3 mb-8">
@@ -115,7 +114,6 @@ export default function SoftwareApp() {
         </button>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 p-6 md:p-10 overflow-y-auto">
         {activeTab === 'dashboard' && (
           <div className="space-y-6">
@@ -174,3 +172,52 @@ export default function SoftwareApp() {
           <div className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Registro de Pacientes</h2>
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                + Nuevo Paciente
+              </button>
+            </div>
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+              <table className="w-full text-left text-sm text-slate-300">
+                <thead className="bg-slate-800 text-slate-400 font-semibold border-b border-slate-700">
+                  <tr>
+                    <th className="p-4">Nombre</th>
+                    <th className="p-4">Teléfono</th>
+                    <th className="p-4">Graduación Reciente</th>
+                    <th className="p-4">Estado del Pedido</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800">
+                  {clientes.map((cliente) => (
+                    <tr key={cliente.id} className="hover:bg-slate-800/50">
+                      <td className="p-4 font-medium text-white">{cliente.nombre}</td>
+                      <td className="p-4 text-slate-400">{cliente.telefono}</td>
+                      <td className="p-4 font-mono text-xs">{cliente.grad}</td>
+                      <td className="p-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          cliente.estado === 'Listo para entrega'
+                            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                        }`}>
+                          {cliente.estado}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'ventas' && (
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold">Historial de Ventas</h2>
+            <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl text-center text-slate-400">
+              Módulo de notas de venta e impresión de recibos activo.
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
